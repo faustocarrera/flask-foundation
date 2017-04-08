@@ -10,6 +10,7 @@ Flask Foundation is a solid foundation for flask applications, built with best p
 ## Links
 
 * [The Flask Mega-Tutorial](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world)
+* [How I structure my Flask applications](http://mattupstate.com/blog/how-i-structure-my-flask-applications/)
 * [Creating Websites With Flask](http://maximebf.com/blog/2012/10/building-websites-in-python-with-flask/)
 * [Getting Bigger With Flask](http://maximebf.com/blog/2012/11/getting-bigger-with-flask/)
 * [Larger Applications With Flask](http://flask.pocoo.org/docs/patterns/packages/)
