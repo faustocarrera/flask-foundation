@@ -43,5 +43,5 @@ env*
 appname/static/public/*
 
 # Eclipse files
-project
+.project
 .pydevproject
