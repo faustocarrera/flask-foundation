@@ -21,6 +21,29 @@ Flask Foundation is a solid foundation for flask applications, built with best p
 * [Mastering flask](https://www.packtpub.com/web-development/mastering-flask)
 * [Flask web development](http://shop.oreilly.com/product/0636920031116.do?cmp=af-webplatform-books-videos-product_cj_9781449372620_%25zp)
 
+## Install
+
+```
+sudo apt-get install libmariadbclient-dev
+sudo apt-get install python-dev
+sudo apt-get isntall libssl-dev
+```
+
+## Make file
+
+```
+====================================================================
+Usage            : /bin/bash ./makefile.sh [option]
+Options
+env              : create a development environment using virtualenv
+requirements     : install requirements
+clean            : remove unwanted files like .pyc's
+lint             : check style with flake8
+test             : run tests using nose
+run              : run application
+====================================================================
+```
+
 ## Migrations
 
 __Database versioning__

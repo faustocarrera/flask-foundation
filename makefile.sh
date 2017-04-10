@@ -1,16 +1,17 @@
 #!/bin/bash
 
 ACTION=$1
+APPNAME="appname"
 
 if [ -z "$ACTION" ]; then
     echo "===================================================================="
     echo "Usage            : /bin/bash $0 [option]"
     echo -e "\033[1mOptions\033[0m"
     echo "env              : create a development environment using virtualenv"
-    echo "dependencies     : install requirements"
+    echo "requirements     : install requirements"
     echo "clean            : remove unwanted files like .pyc's"
     echo "lint             : check style with flake8"
-    echo "test             : run tests using nose"
+    echo "tests            : run tests using nose"
     echo "run              : run application"
     echo "===================================================================="
     exit 0
@@ -27,13 +28,13 @@ if [ "$ACTION" == "env" ]; then
 fi
 
 # install dependencies
-if [ "$ACTION" == "dependencies" ]; then
+if [ "$ACTION" == "requirements" ]; then
     echo "Installing required libraries"
     ./env/bin/pip install -r requirements
 fi
 
 # clean
-if [ "$ACTION" == "delete" ]; then
+if [ "$ACTION" == "clean" ]; then
 	./env/bin/python manage.py clean
 fi
 
@@ -43,8 +44,8 @@ if [ "$ACTION" == "lint" ]; then
 fi
 
 # test
-if [ "$ACTION" == "test" ]; then
-	nosetests --verbose
+if [ "$ACTION" == "tests" ]; then
+    env/bin/nosetests --with-coverage --cover-erase --cover-package="$APPNAME" --tests=tests/
 fi
 
 # test
