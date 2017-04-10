@@ -20,3 +20,28 @@ Flask Foundation is a solid foundation for flask applications, built with best p
 
 * [Mastering flask](https://www.packtpub.com/web-development/mastering-flask)
 * [Flask web development](http://shop.oreilly.com/product/0636920031116.do?cmp=af-webplatform-books-videos-product_cj_9781449372620_%25zp)
+
+## Migrations
+
+__Database versioning__
+
+Versioning: [https://sqlalchemy-migrate.readthedocs.io/en/latest/versioning.html](https://sqlalchemy-migrate.readthedocs.io/en/latest/versioning.html)
+
+Changes: [https://sqlalchemy-migrate.readthedocs.io/en/latest/changeset.html](https://sqlalchemy-migrate.readthedocs.io/en/latest/changeset.html)
+
+```
+$ source env/bin/activate
+$ migrate create migrations 'My app name'
+$ migrate manage migrations.py --repository=migrations --url=sqlite:///project.db
+$ python migrations.py version_control
+$ python migrations.py db_version
+$ python migrations.py script 'Add cashflow table'
+$ python migrations.py test
+$ python migrations.py upgrade
+```
+
+## Todo
+
+* ~~update makefile~~
+* update nose tests
+* ~~create sqlalchemy migrations documentation~~
