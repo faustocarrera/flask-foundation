@@ -1,5 +1,3 @@
-#! ../env/bin/python
-
 from flask import Flask
 from webassets.loaders import PythonLoader as PythonAssetsLoader
 
