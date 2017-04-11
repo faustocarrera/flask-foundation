@@ -30,7 +30,7 @@ fi
 # install dependencies
 if [ "$ACTION" == "requirements" ]; then
     echo "Installing required libraries"
-    ./env/bin/pip install -r requirements
+    ./env/bin/pip install -r requirements.txt
 fi
 
 # clean
