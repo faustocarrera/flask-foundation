@@ -43,5 +43,6 @@ env*
 appname/static/public/*
 
 # Eclipse files
+.settings
 .project
 .pydevproject

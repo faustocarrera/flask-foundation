@@ -1,3 +1,5 @@
+import warnings
+from flask.exthook import ExtDeprecationWarning
 from flask import Flask
 from webassets.loaders import PythonLoader as PythonAssetsLoader
 
@@ -11,6 +13,9 @@ from appname.extensions import (
     debug_toolbar,
     login_manager
 )
+
+warnings.simplefilter('ignore', ExtDeprecationWarning)
+warnings.simplefilter('ignore', UserWarning)
 
 
 def create_app(object_name):
