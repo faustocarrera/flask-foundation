@@ -27,6 +27,13 @@ if [ "$ACTION" == "env" ]; then
     fi
 fi
 
+# check if we have a virtualenv
+if [ ! -d "$VIRTUALENVDIR" ]; then
+    echo "You have to create a virtualenv"
+    echo "/bin/bash $0 env"
+    exit 1
+fi
+
 # install dependencies
 if [ "$ACTION" == "requirements" ]; then
     echo "Installing required libraries"
