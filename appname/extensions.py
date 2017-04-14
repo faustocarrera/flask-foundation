@@ -3,7 +3,7 @@ from flask_debugtoolbar import DebugToolbarExtension
 from flask_login import LoginManager
 from flask_assets import Environment
 
-from appname.models.user import User
+from appname.models import User
 
 # Setup flask cache
 cache = Cache()

@@ -52,7 +52,7 @@ if [ "$ACTION" == "lint" ]; then
 fi
 
 # test
-if [ "$ACTION" == "tests" ]; then
+if [ "$ACTION" == "test" ] || [ "$ACTION" == "tests" ]; then
     env/bin/nosetests --with-coverage --cover-erase --cover-package="$APPNAME" --tests=tests/
 fi
 

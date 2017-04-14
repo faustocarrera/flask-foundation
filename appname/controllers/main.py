@@ -10,7 +10,7 @@ from flask_login import login_required
 
 from appname.extensions import cache
 from appname.forms import LoginForm
-from appname.models.user import User
+from appname.models import User
 
 main = Blueprint('main', __name__)
 
