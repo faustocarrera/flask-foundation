@@ -2,6 +2,7 @@
 
 ACTION=$1
 APPNAME="appname"
+VIRTUALENVDIR="./env"
 
 if [ -z "$ACTION" ]; then
     echo "===================================================================="
