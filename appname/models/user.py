@@ -1,3 +1,7 @@
+"""
+Package: models.user
+"""
+
 from flask_login import UserMixin
 from flask_login import AnonymousUserMixin
 from werkzeug.security import generate_password_hash
@@ -15,28 +19,34 @@ class User(db.Model, UserMixin):
         self.set_password(password)
 
     def set_password(self, password):
+        "Hash password"
         self.password = generate_password_hash(password)
 
     def check_password(self, value):
+        "Check password"
         return check_password_hash(self.password, value)
 
     @property
     def is_authenticated(self):
+        "Check if user is authenticated"
         if isinstance(self, AnonymousUserMixin):
             return False
         else:
             return True
 
     def is_active(self):
+        "Check if user is active"
         return True
 
     def is_anonymous(self):
+        "Check if the user is not logged"
         if isinstance(self, AnonymousUserMixin):
             return True
         else:
             return False
 
     def get_id(self):
+        "Get user id"
         return self.id
 
     def __repr__(self):

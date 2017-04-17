@@ -1,11 +1,14 @@
+"""
+Appname entrypoint
+"""
+
 import warnings
 from flask.exthook import ExtDeprecationWarning
 from flask import Flask
 from webassets.loaders import PythonLoader as PythonAssetsLoader
-
 from appname import assets
 from appname.database import db
-from appname.controllers.main import main
+from appname.controllers import main
 
 from appname.extensions import (
     cache,
