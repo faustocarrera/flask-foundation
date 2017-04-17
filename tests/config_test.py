@@ -27,22 +27,22 @@ class TestConfig():
     def test_dev_config(self):
         "Check if dev config loads correctly"
         app = create_app('appname.settings.DevConfig')
-        assert_equal(app.config['DEBUG'], True)
-        assert_equal(app.config['SQLALCHEMY_DATABASE_URI'], 'sqlite:///../database.db')
-        assert_equal(app.config['SQLALCHEMY_TRACK_MODIFICATIONS'], False)
-        assert_equal(app.config['CACHE_TYPE'], 'null')
+        assert app.config['DEBUG'] == True
+        assert app.config['SQLALCHEMY_DATABASE_URI'] == 'sqlite:///database/dev.db'
+        assert app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] == False
+        assert app.config['CACHE_TYPE'] == 'null'
 
     def test_test_config(self):
         "Check if test config loads correctly"
         app = create_app('appname.settings.TestConfig')
-        assert_equal(app.config['DEBUG'], True)
-        assert_equal(app.config['SQLALCHEMY_TRACK_MODIFICATIONS'], False)
-        assert_equal(app.config['SQLALCHEMY_ECHO'], True)
-        assert_equal(app.config['CACHE_TYPE'], 'null')
+        assert app.config['DEBUG'] == True
+        assert app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] == False
+        assert app.config['SQLALCHEMY_ECHO'] == True
+        assert app.config['CACHE_TYPE'] == 'null'
         
     def test_prod_config(self):
         "Check if production config loads correctly"
         app = create_app('appname.settings.ProdConfig')
-        assert_equal(app.config['SQLALCHEMY_TRACK_MODIFICATIONS'], False)
-        assert_equal(app.config['SQLALCHEMY_DATABASE_URI'], 'sqlite:///../database.db')
-        assert_equal(app.config['CACHE_TYPE'], 'simple')
+        assert app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] == False
+        assert app.config['SQLALCHEMY_DATABASE_URI'] == 'sqlite:///database/prod.db'
+        assert app.config['CACHE_TYPE'] == 'simple'

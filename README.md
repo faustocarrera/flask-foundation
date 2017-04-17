@@ -60,10 +60,11 @@ $ python manage.py db migrate -m 'init migration'
 $ python manage.py db revision -m 'create user table'
 # apply migrations
 $ python manage.py migrate
+
 ```
 
 ## Todo
 
 * ~~update makefile~~
-* update nose tests
+* ~~update nose tests~~
 * ~~create sqlalchemy migrations documentation~~

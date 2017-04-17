@@ -1,6 +1,13 @@
 #Changelog
 
-##1.0
+## 1.1
+
+* URLS nosets
+* Models nosetest
+* Login nosetest
+
+## 1.0
+
 * MVC with blueprints, SQLAlchemy models, and templates
 * A makefile
 * nose tests

@@ -30,4 +30,8 @@ def make_shell_context():
 
 
 if __name__ == "__main__":
+    print('Working on [%s] with database [%s]' % (
+        app.config['ENV'], 
+        app.config['SQLALCHEMY_DATABASE_URI']
+    ))
     manager.run()
