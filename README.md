@@ -46,21 +46,20 @@ run              : run application
 
 ## Migrations
 
-__Database versioning__
-
-Versioning: [https://sqlalchemy-migrate.readthedocs.io/en/latest/versioning.html](https://sqlalchemy-migrate.readthedocs.io/en/latest/versioning.html)
-
-Changes: [https://sqlalchemy-migrate.readthedocs.io/en/latest/changeset.html](https://sqlalchemy-migrate.readthedocs.io/en/latest/changeset.html)
+* [Flask-Migrate](https://flask-migrate.readthedocs.io/en/latest/)
+* [Alembic](http://alembic.zzzcomputing.com/en/latest/index.html)
 
 ```
-$ source env/bin/activate
-$ migrate create migrations 'My app name'
-$ migrate manage migrations.py --repository=migrations --url=sqlite:///project.db
-$ python migrations.py version_control
-$ python migrations.py db_version
-$ python migrations.py script 'Add cashflow table'
-$ python migrations.py test
-$ python migrations.py upgrade
+# help
+$ python manage.py db --help
+# init migrations repository
+$ python manage.py db init
+# autogenerate first migration
+$ python manage.py db migrate -m 'init migration'
+# generate migration script
+$ python manage.py db revision -m 'create user table'
+# apply migrations
+$ python manage.py migrate
 ```
 
 ## Todo

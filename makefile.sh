@@ -2,7 +2,7 @@
 
 ACTION=$1
 APPNAME="appname"
-VIRTUALENVDIR="./env"
+VIRTUALENVDIR="env"
 
 if [ -z "$ACTION" ]; then
     echo "===================================================================="
@@ -11,7 +11,8 @@ if [ -z "$ACTION" ]; then
     echo "env              : create a development environment using virtualenv"
     echo "requirements     : install requirements"
     echo "clean            : remove unwanted files like .pyc's"
-    echo "lint             : check style with flake8"
+    echo "lint:flake       : check style with flake8"
+    echo "lint:pylint      : check style with pylint"
     echo "tests            : run tests using nose"
     echo "run              : run application"
     echo "===================================================================="
@@ -21,8 +22,8 @@ fi
 # virutalenv
 if [ "$ACTION" == "env" ]; then
     echo "Generating virtual environment."
-    if [ ! -d "$VIRTUALENVDIR" ]; then
-        virtualenv env -p python2.7
+    if [ ! -d "./$VIRTUALENVDIR" ]; then
+        virtualenv $VIRTUALENVDIR -p python2.7
     else
         echo "Virtualenv already present."
     fi
@@ -43,22 +44,32 @@ fi
 
 # clean
 if [ "$ACTION" == "clean" ]; then
-	./env/bin/python manage.py clean
+    echo "Cleaning"
+    find . -name '*.pyc' | xargs rm -f
 fi
 
-# lint
-if [ "$ACTION" == "lint" ]; then
-	flake8 --exclude=env .
+# lint with flake8
+if [ "$ACTION" == "lint:flake" ]; then
+    echo "Lint: flake8"
+    ./env/bin/flake8 --exclude="$VIRTUALENVDIR" "$APPNAME"
+fi
+
+# lint with pylint
+if [ "$ACTION" == "lint:pylint" ]; then
+    echo "Lint: pylint"
+    ./env/bin/pylint "$APPNAME"
 fi
 
 # test
 if [ "$ACTION" == "test" ] || [ "$ACTION" == "tests" ]; then
+    echo "Running tests"
     env/bin/nosetests --with-coverage --cover-erase --cover-package="$APPNAME" --tests=tests/
 fi
 
 # test
 if [ "$ACTION" == "run" ]; then
-	export APPNAME_ENV=dev
-	export FLASK_DEBUG=1
-	./env/bin/python manage.py server
+    echo "Starting app..."
+    export APPNAME_ENV=dev
+    export FLASK_DEBUG=1
+    ./env/bin/python manage.py server
 fi

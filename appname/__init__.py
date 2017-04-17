@@ -4,7 +4,7 @@ from flask import Flask
 from webassets.loaders import PythonLoader as PythonAssetsLoader
 
 from appname import assets
-from appname.models import db
+from appname.database import db
 from appname.controllers.main import main
 
 from appname.extensions import (
