@@ -32,8 +32,8 @@ database.db
 docs/_build
 
 # Virtual environments
-env
-env*
+env/
+env/*
 
 .webassets-cache
 .DS_Store
