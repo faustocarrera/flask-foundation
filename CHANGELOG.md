@@ -1,5 +1,9 @@
 #Changelog
 
+## 1.2
+
+* Migrate to pytest, Nose is deprecated
+
 ## 1.1
 
 * URLS nosets
