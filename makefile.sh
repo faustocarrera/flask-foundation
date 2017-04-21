@@ -13,8 +13,8 @@ if [ -z "$ACTION" ]; then
     echo "requirements      : install requirements"
     echo "clean             : remove unwanted files like .pyc's"
     echo "urls              : display app urls"
-    echo "lint:flake             : check style with flake8"
-    echo "lint:pylint            : check style with pylint"
+    echo "lint:flake        : check style with flake8"
+    echo "lint:pylint       : check style with pylint"
     echo "tests             : run tests using nose"
     echo "run               : run application"
     echo "===================================================================="
@@ -65,7 +65,8 @@ fi
 # test
 if [ "$ACTION" == "test" ] || [ "$ACTION" == "tests" ]; then
     echo "Running tests"
-    env/bin/nosetests --with-coverage --cover-erase --cover-package="$APPNAME" --tests=tests/
+    ./env/bin/pytest -v --cov="$APPNAME" tests/
+    # ./env/bin/pytest -v tests/
 fi
 
 # run

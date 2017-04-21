@@ -1,31 +1,23 @@
 #!env/bin/python
 # -*- coding: utf-8 -*-
 
-from nose.tools import *
-from . import BaseTest
+import pytest
+from . import test_app
 
-class TestLogin(BaseTest):
-    
-    def setup(self):
-        "Setup after each method"
-        print('SETUP')
+class TestLogin():
         
-    def teardown(self):
-        "Teardown after each method"
-        print('TEARDOWN')
-        
-    def test_login(self):
+    def test_login(self, test_app):
         "Tests if the login form functions"
-        rv = self.cf.post('/login', data=dict(
+        rv = test_app.post('/login', data=dict(
             username='admin',
             password="supersafepassword"
         ), follow_redirects=True)
         assert rv.status_code == 200
         assert 'Logged in successfully.' in str(rv.data)
 
-    def test_login_fail(self):
+    def test_login_fail(self, test_app):
         "Tests if the login form fails correctly"
-        rv = self.cf.post('/login', data=dict(
+        rv = test_app.post('/login', data=dict(
             username='admin',
             password=""
         ), follow_redirects=True)

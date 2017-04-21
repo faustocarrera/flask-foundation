@@ -1,28 +1,11 @@
 #!env/bin/python
 #-*- coding: utf-8 -*-
 
-from nose.tools import *
+import pytest
 from appname import create_app
 
 
 class TestConfig():
-
-    @classmethod
-    def setup_class(cls):
-        "Run for this class only"
-        print('SETUP CLASS')
-
-    @classmethod
-    def teardown_class(cls):
-        print('TEARDOWN CLASS')
-
-    def setup(self):
-        "Setup after each method"
-        print('SETUP')
-        
-    def teardown(self):
-        "Teardown after each method"
-        print('TEARDOWN')
         
     def test_dev_config(self):
         "Check if dev config loads correctly"
